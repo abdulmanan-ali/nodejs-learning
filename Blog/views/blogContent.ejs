@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/head') %>
+    <title>Document</title>
+  </head>
+
+  <body>
+    <%- include('./partials/nav') %>
+    <div class="container mt-3">
+      <h1><%=locals.blog.title %></h1>
+      <img src="<%=locals.blog.coverImageURL %>" alt="" width="1000px" class="mb-3 mt-2" />
+      <pre><%=locals.blog.body %></pre>
+      <%- include('comment') %>
+    </div>
+    <%- include('./partials/scripts') %>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+<div class="mt-3">
+    <h1>Comments (<%= comments.length %>)</h1>
+    <% if (locals.user) { %>
+        <form action="/blog/<%= blog._id %>" method="post">
+            <div class="mb-3">
+                <input type="text" name="content" class="form-control" placeholder="Enter your comment" />
+                <button class="btn btn-sm btn-primary mt-2" type="submit">Add</button>
+            </div>
+        </form>
+        <% } %>
+            <div class="mt-3">
+                <% comments.forEach(comment=> { %>
+                    <img src="<%= comment.createdBy.profileImageURL.startsWith('/') ? comment.createdBy.profileImageURL : '/images/default.webp' %>"
+                        width="50px" alt="image error">
+                    <%= comment.createdBy.fullName %>
+                        <p>
+                            <%= comment.content %>
+                        </p>
+                        <% }) %>
+            </div>
+</div>
