@@ -8,12 +8,13 @@ const cookieParser = require("cookie-parser");
 const { checkForAuthenticationCookie } = require("./middlewares/auth");
 const Blog = require("./models/blog");
 
-connectToDB("mongodb://127.0.0.1:27017/mynewdb")
+connectToDB(process.env.MongoDB_URL)
+// connectToDB("mongodb://127.0.0.1:27017/mynewdb")
   .then(() => console.log("mongoDB connected successfully"))
   .catch(() => console.log("DB connection Error"));
 
 const app = express();
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 
 app.set("view engine", "ejs");
 app.set("views", path.resolve("./views"));
